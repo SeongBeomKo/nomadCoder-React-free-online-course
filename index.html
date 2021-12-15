@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    
+    const root = document.getElementById("root");
+    
+    // react의 작동원리를 위해 createElement를 사용 했지만,
+    // 더 나은 방법이 많기 때문에 다시 실제로 사용할 일은 없음
+    // const h3 = React.createElement("h3",
+    //     {
+    //         id: "title",
+    //         style: { color: "red" },
+    //         onMouseEnter: () => console.log("mouse enter"),
+    //     },
+    //     "Hello I am a span");
+
+    //jsx, babel imported
+    const Title = (
+        <h3
+            id="title"
+            onMouseEnter={() => console.log("mouse enter")}
+        >
+            Hello I am a title
+        </h3>
+    );
+
+    //jsx, babel imported
+    const btn = <button
+        style={{
+            backgroundColor: "tomato",
+        }}
+        onClick={() => console.log("im clicked")}
+    >
+        click me
+    </button>
+    
+    
+    // const btn = React.createElement("button",
+    //     {
+    //         onClick: () => console.log("im clicked"),
+    //         style: {
+    //             backgroundColor: "tomato",
+    //         }
+    //     }
+    //     , "Click me");
+
+
+    const container = React.createElement("div", null, [Title, btn]);
+    ReactDOM.render(container, root);
+
+</script>
+
+</html>
